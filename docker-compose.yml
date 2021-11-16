@@ -1,0 +1,71 @@
+version: '3.9'
+services:
+  transaction_service:
+    container_name: transaction_service
+    image: nvrs/transaction-mgmt/transaction:0.0.1-SNAPSHOT
+    ports:
+      - "6060:6060"
+    restart: unless-stopped
+    depends_on:
+      - "customer_service"
+
+  customer_service:
+    container_name: customer_service
+    image: nvrs/transaction-mgmt/customer:0.0.1-SNAPSHOT
+    ports:
+      - "9090:9090"
+    restart: unless-stopped
+    depends_on:
+      - "product_service"
+
+  product_service:
+    container_name: product_service
+    image: nvrs/transaction-mgmt/product:0.0.1-SNAPSHOT
+    ports:
+      - "7070:7070"
+    restart: unless-stopped
+    depends_on:
+      - "merchant_service"
+
+  merchant_service:
+    container_name: merchant_service
+    image: nvrs/transaction-mgmt/merchant:0.0.1-SNAPSHOT
+    ports:
+      - "9095:9095"
+    restart: unless-stopped
+    depends_on:
+      - "authentication-service"
+
+  authentication-service:
+    container_name: authentication-service
+    image: nvrs/transaction-mgmt/authentication-service:0.0.1-SNAPSHOT
+    ports:
+      - "9191:9191"
+    restart: unless-stopped
+    depends_on:
+      - "api-gateway"
+
+  api-gateway:
+    container_name: api-gateway
+    image: nvrs/transaction-mgmt/api-gateway:0.0.1-SNAPSHOT
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    depends_on:
+      - "service-discovery"
+
+  service-discovery:
+    container_name: service-discovery
+    image: nvrs/transaction-mgmt/service-discovery:0.0.1-SNAPSHOT
+    ports:
+      - "8761:8761"
+    restart: unless-stopped
+    depends_on:
+      - "config-server"
+
+  config-server:
+    container_name: config-server
+    image: nvrs/transaction-mgmt/config-server:0.0.1-SNAPSHOT
+    ports:
+      - "8088:8088"
+    restart: unless-stopped
