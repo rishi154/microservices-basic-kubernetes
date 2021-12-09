@@ -15,7 +15,7 @@ spec:
                 app: config-server
         spec:
             containers:
-            - image: nvrs/transaction-mgmt/config-server:0.0.1-SNAPSHOT
+            - image: rishi154/config-server:0.0.1-SNAPSHOT
               imagePullPolicy: IfNotPresent
               name: config-server
 ---
@@ -37,7 +37,7 @@ spec:
                 app: api-gateway
         spec:
             containers:
-                - image: nvrs/transaction-mgmt/api-gateway:0.0.1-SNAPSHOT
+                - image: rishi154/api-gateway:0.0.1-SNAPSHOT
                   imagePullPolicy: IfNotPresent
                   name: api-gateway
 ---
@@ -59,7 +59,7 @@ spec:
                 app: authentication-service
         spec:
             containers:
-                - image: nvrs/transaction-mgmt/authentication-service:0.0.1-SNAPSHOT
+                - image: rishi154/authentication-service:0.0.1-SNAPSHOT
                   imagePullPolicy: IfNotPresent
                   name: authentication-service
 ---
@@ -81,7 +81,7 @@ spec:
                 app: merchant-service
         spec:
             containers:
-                - image: nvrs/transaction-mgmt/merchant:0.0.1-SNAPSHOT
+                - image: rishi154/merchant:0.0.1-SNAPSHOT
                   imagePullPolicy: IfNotPresent
                   name: merchant-service
 ---
@@ -103,7 +103,7 @@ spec:
                 app: product-service
         spec:
             containers:
-                - image: nvrs/transaction-mgmt/product:0.0.1-SNAPSHOT
+                - image: rishi154/product:0.0.1-SNAPSHOT
                   imagePullPolicy: IfNotPresent
                   name: product-service
 ---
@@ -125,7 +125,7 @@ spec:
                 app: customer-service
         spec:
             containers:
-                - image: nvrs/transaction-mgmt/customer:0.0.1-SNAPSHOT
+                - image: rishi154/customer:0.0.1-SNAPSHOT
                   imagePullPolicy: IfNotPresent
                   name: customer-service
 ---
@@ -147,7 +147,7 @@ spec:
                 app: transaction-service
         spec:
             containers:
-                - image: nvrs/transaction-mgmt/transaction:0.0.1-SNAPSHOT
+                - image: rishi154/transaction:0.0.1-SNAPSHOT
                   imagePullPolicy: IfNotPresent
                   name: transaction-service
 ---
