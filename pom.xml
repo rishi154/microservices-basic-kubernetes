@@ -61,7 +61,6 @@
 
 	<modules>
 		<module>config-server</module>
-		<module>service-discovery</module>
 		<module>customer</module>
 		<module>merchant</module>
 		<module>product</module>
