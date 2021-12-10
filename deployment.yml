@@ -179,7 +179,7 @@ spec:
         app: api-gateway
     ports:
         - protocol: TCP
-          port: 8080
+          port: 30008
           targetPort: 8080
           nodePort: 30008
 ---
